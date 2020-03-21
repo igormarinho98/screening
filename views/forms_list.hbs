@@ -1,0 +1,104 @@
+<section class="card mt-5 mr-2 ml-2">
+   
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Medicament</th>
+                    <th>Sickness</th>
+                    <th>Prognostic</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{age}}</td>
+                    <td>{{medicament}}</td>
+                    <td>{{sickness}}</td>
+                    <td>{{prognostic}}</td>
+                    <td><a class="btn btn-info" href="/forms/edit/{{_id}}"><i class="fas fa-user-edit"></i></a></td>
+                    <td><form action="/forms/{{_id}}" method="POST"><input type="hidden" name="_method" value="DELETE"><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></form></td>
+               
+                </tr>
+                  {{/each}}  
+            </tbody>
+        </table>
+            <i class="fas fa-5x fa-briefcase-medical"></i>
+
+                 
+                <!-- Modal -->
+            
+        
+    </div>
+    <div class="container mb-3">
+
+    <button type="button" class="btn btn-primary " 
+                    data-toggle="modal" data-target=".bd-example-modal-lg">
+                    Show More
+    </button>
+    </div>
+
+  
+</section>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog  modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Resume</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+
+                        <div class="modal-body cstm-modal">
+                            
+                        {{#each data}}
+                            <ul class="list-group">
+                                <h4 class="mx-auto">{{name}}</h4>
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Pacient name </h6>   
+                                <p class="list-item-group-text"> {{name}}</p></li>
+
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Personal id </h6>   
+                                <p class="list-item-group-text"> {{_id}}</p></li>
+
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Medicament  </h6>   
+                                <p class="list-item-group-text"> {{medicament}}</p></li>
+
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Prognostic  </h6>   
+                                <p class="list-item-group-text"> {{prognostic}}</p></li>
+                                
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Registered at</h6>   
+                                <p class="list-item-group-text"> {{date}}</p></li>
+
+                                <li class="list-group-item mb-1">
+                                 <h6 class="list-group-item-heading">Sickness </h6>   
+                                <p class="list-item-group-text"> {{sickness}}</p></li>
+                                         
+                            </ul>
+                            <p class="mt-2 ml-1 mr-5"><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></p>
+                        {{/each}}
+                         
+                        </div>
+                  
+                  
+
+                   
+                    </div>
+                      
+            </div>
+                
+            </div>
+            
